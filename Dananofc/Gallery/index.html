@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Danan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="navbar" style="top: 10px;">
+        <div class="logo">
+            <button class="menu-btn">☰</button>
+        </div>
+        <nav class="nav-links" style="margin-right: 50px;">
+            <a href="#top">Home</a>
+            <a href="#profile">Profile</a>
+            <a href="artwork.html">Art I Made</a>
+            <a href="#connect">Connect</a>
+        </nav>
+    </header>
+
+    <section class="top light-bg" id="top">
+        <div class="scroll-container">
+            <img class="jemuran" src="tes.png" alt="Karya" />
+        </div>
+    </section>
+
+    <section class="main light-bg" id="main">
+        <img class="bg-sepatu" src="Sepatu.jpg" alt="Background Sepatu" />
+        <div class="main-content">
+            <h1>HELLO</h1>
+            <p>Already scrolling the drawings?</p>
+            <a href="#profile" class="buttonbase buttondark ktf">Know the faces behind the works</a>
+        </div>
+    </section>
+
+    <section class="faq-section dark-bg" id="faq">
+        <h2>FAQ</h2>
+        <p>FREQUENTLY ASKED QUESTION</p>
+
+        <div class="faq-item">
+            <button class="faq-question">Mas nya ngegambar sendiri?<span class="arrow"><i
+                        class="fa-solid fa-angle-down"></i></span></button>
+            <div class="faq-answer">Lah iya...</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Cuma gambar pensil ini mas?<span class="arrow"><i
+                        class="fa-solid fa-angle-down"></i></span></button>
+            <div class="faq-answer">Ya adanya cuma itu sih...</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Open commis ga mas?<span class="arrow"><i
+                        class="fa-solid fa-angle-down"></i></span></button>
+            <div class="faq-answer">
+                Pesen di <span style="color: #ca0000;">DeGallerie</span> ya!
+            </div>
+        </div>
+
+
+        <div class="faq-item">
+            <button class="faq-question">Pernah pameran ga mas?<span class="arrow"><i
+                        class="fa-solid fa-angle-down"></i></span></button>
+            <div class="faq-answer">Sedang menjadi hantu laut 👻</div>
+        </div>
+    </section>
+
+
+    </section>
+    <section id="profile" class="section light-bg">
+        <div class="profile-container">
+            <img src="pp.jpg" alt="" class="fprofil">
+
+            <div class="bio-side">
+                <p class="bio"><strong>Saqa Pandega Adha Dananjaya</strong>, also known as Danan, is a student and
+                    emerging
+                    visual artist from
+                    Sidoarjo, Indonesia. His works focus on human behavior, especially on how people respond to
+                    problems in unusual or irrational ways. He is interested in how these patterns of thought continue
+                    to exist in society, often shaped by generational shifts and political influence. Social and
+                    political
+                    themes often appear in his works, showing how power can affect the way people think and act.
+                    Through drawing, installation, music, and digital media, He creates art as a way to raise awareness
+                    and open space for honest conversation about the issues around us.</p>
+                <a href="https://bit.ly/CVADanan25" target="_blank" class="buttonbase buttondark ktf">Download CV
+                    Artistik </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="connect" class="contact-danan dark-bg">
+        <h1 class="contact-title-danan">SAY HI!</h1>
+        <div class="contact-links-danan">
+            <a href="https://instagram.com/panndega_" target="_blank" class="ig-hover" data-text="INSTAGRAM">
+                INSTAGRAM
+                <span class="reveal-info">@panndega_</span>
+            </a>
+            <a href="mailto:saqapandegaproff@gmail.com" target="_blank" class="email-hover">
+                EMAIL
+                <span class="reveal-info">saqapandegaproff@gmail.com</span>
+            </a>
+            <a href="https://wa.me/6289518985658?text=Hi!" target="_blank" class="wa-hover">
+                WHATSAPP
+                <span class="reveal-info">+62 895-1898-5658</span>
+            </a>
+        </div>
+    </section>
+
+    <div id="scrollToTop"><i class="fas fa-arrow-up"></i></div>
+
+
+
+
+
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    const headerOffset = -20;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const item = this.parentElement;
+                item.classList.toggle('active');
+
+                document.querySelectorAll('.faq-item').forEach(el => {
+                    if (el !== item) {
+                        el.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        const scrollBtn = document.getElementById('scrollToTop');
+
+        const updateScrollBtnStyle = () => {
+            const sections = document.querySelectorAll('section');
+            for (const section of sections) {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    if (section.classList.contains('dark-bg')) {
+                        scrollBtn.style.color = '#fff';
+                        scrollBtn.style.borderColor = '#fff';
+                    } else {
+                        scrollBtn.style.color = '#000';
+                        scrollBtn.style.borderColor = '#000';
+                    }
+                    break;
+                }
+            }
+        };
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > window.innerHeight / 2) {
+                scrollBtn.classList.add('show');
+            } else {
+                scrollBtn.classList.remove('show');
+            }
+            updateScrollBtnStyle();
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>
