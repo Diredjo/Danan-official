@@ -479,11 +479,6 @@ body {
 }
 
 @media (max-width: 576px) {
-    .jemuran {
-        width: auto;
-        height: 60% !important;
-        margin-bottom: -60px;
-    }
 
     .bg-sepatu {
         display: none;
