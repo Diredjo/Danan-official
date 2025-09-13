@@ -1,7 +1,95 @@
+/* ===== GALLERY ===== */
+.gallery-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.gallery-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #ca0000;
+}
+
+/* Masonry Layout pakai columns */
+.gallery-grid {
+    column-count: 3;
+    column-gap: 20px;
+}
+
+.gallery-item {
+    position: relative; /* biar caption bisa absolute */
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 100%;
+    background: #000; /* bg item hitam */
+    border-radius: 8px;
+    overflow: hidden; /* biar teks ga keluar dari foto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:nth-child(odd) {
+    transform: rotate(-2deg);
+}
+
+.gallery-item:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.gallery-item:hover {
+    transform: rotate(0deg);
+    box-shadow: 0 4px 12px rgba(202, 0, 0, 0.6);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.85; /* biar teks lebih jelas */
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover img {
+    opacity: 0.7;
+}
+
+/* Caption nimpa foto */
+.gallery-item .caption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff; /* putih biar kontras */
+    background: rgba(0, 0, 0, 0.4); /* semi transparan biar kebaca */
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        column-count: 1;
+    }
+}
+
+
 body {
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #fff;
+    /* dominan putih */
+    color: #111;
 }
 
 .buttonbase {
@@ -10,31 +98,38 @@ body {
     border-radius: 50px;
     font-weight: 600;
     font-size: 0.875rem;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 4px rgba(202, 0, 0, 0.3);
     transition: all 0.3s ease;
     display: inline-block;
     cursor: pointer;
+    color: #ca0000;
+    border: 2px solid #ca0000;
+    background-color: white;
 }
 
-.buttondef:hover {
-    background-color: black;
+.buttonbase:hover {
+    background-color: #ca0000;
     color: white;
+    box-shadow: 2px 2px 8px rgba(202, 0, 0, 0.7);
 }
 
+.buttondef:hover,
 .buttondark:hover {
-    background-color: black;
+    background-color: #ca0000;
     color: white;
+    border-color: #ca0000;
 }
 
 /* SIDE MENU */
 .side-menu {
     position: fixed;
     top: 0;
-    left: -250px; /* sembunyikan di luar layar */
+    left: -250px;
+    /* sembunyikan di luar layar */
     width: 220px;
     height: 100%;
     background-color: #fff;
-    box-shadow: 3px 0 6px rgba(0,0,0,0.3);
+    box-shadow: 3px 0 6px rgba(202, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     padding-top: 60px;
@@ -45,14 +140,14 @@ body {
 .side-menu a {
     padding: 15px 20px;
     text-decoration: none;
-    color: #111;
+    color: #ca0000;
     font-weight: 600;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #f5f5f5;
     transition: background 0.2s;
 }
 
 .side-menu a:hover {
-    background-color: #f5f5f5;
+    background-color: #ffe6e6;
 }
 
 /* kalau tombol ☰ diklik */
@@ -63,8 +158,21 @@ body {
 /* biar tombol ☰ ga ketimpa */
 .menu-btn {
     z-index: 1200;
+    font-size: 1.25rem;
+    border: 2px solid #ca0000;
+    padding: 6px 11px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 2px 2px 4px rgba(202, 0, 0, 0.3);
+    cursor: pointer;
+    color: #ca0000;
 }
 
+.menu-btn:hover {
+    background-color: #ca0000;
+    color: white;
+    box-shadow: 2px 2px 8px rgba(202, 0, 0, 0.7);
+}
 
 .navbar {
     display: flex;
@@ -78,16 +186,6 @@ body {
     background: none;
 }
 
-.menu-btn {
-    font-size: 1.25rem;
-    border: 2px solid black;
-    padding: 6px 11px;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-}
-
 .nav-links {
     display: flex;
     gap: 20px;
@@ -96,18 +194,18 @@ body {
 .nav-links a {
     text-decoration: none;
     padding: 8px 18px;
-    border: 2px solid black;
+    border: 2px solid #ca0000;
     border-radius: 24px;
     background-color: white;
     font-weight: 600;
     font-size: 0.875rem;
-    color: black;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: #ca0000;
+    box-shadow: 2px 2px 4px rgba(202, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
-    background-color: black;
+    background-color: #ca0000;
     color: white;
 }
 
@@ -119,6 +217,7 @@ body {
     align-items: center;
     justify-content: center;
     scroll-margin-top: 80px;
+    color: #111;
 }
 
 .scroll-container {
@@ -150,6 +249,7 @@ body {
     overflow: hidden;
     padding: 80px 20px;
     box-sizing: border-box;
+    color: #ca0000;
 }
 
 .bg-sepatu {
@@ -169,20 +269,22 @@ body {
     z-index: 2;
     margin: 10px 0;
     text-align: center;
+    color: #ca0000;
 }
 
 .ktf {
-    color: aliceblue;
-    background-color: #1e1e1e;
-    border: 2px solid #ffffff;
+    color: #ca0000;
+    background-color: white;
+    border: 2px solid #ca0000;
     font-size: 1.25rem;
     font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .ktf:hover {
-    color: #1e1e1e;
-    background-color: #ffffff;
-    border: 2px solid #1e1e1e;
+    color: white;
+    background-color: #ca0000;
+    border: 2px solid #ca0000;
 }
 
 .main h1 {
@@ -195,34 +297,36 @@ body {
     margin-bottom: 30px;
     font-size: 1.25rem;
     font-weight: 500;
-    color: #1e1e1e;
+    color: #ca0000;
 }
 
 .faq-section {
-    background-color: #1e1e1e;
+    background-color: white;
     padding: 80px 20px;
-    color: white;
+    color: #ca0000;
     text-align: center;
 }
 
 .faq-section h2 {
     font-size: 2.25rem;
     margin-bottom: 10px;
+    color: #ca0000;
 }
 
 .faq-section p {
     font-weight: 600;
     font-size: 1.125rem;
     margin-bottom: 40px;
+    color: #ca0000;
 }
 
 .faq-item {
     max-width: 800px;
     margin: 20px auto;
     background-color: white;
-    border: 2px solid black;
+    border: 2px solid #ca0000;
     border-radius: 30px;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 6px rgba(202, 0, 0, 0.3);
     overflow: hidden;
     transition: all 0.3s ease;
 }
@@ -234,7 +338,7 @@ body {
     padding: 20px 30px;
     font-size: 1.125rem;
     font-weight: 600;
-    color: black;
+    color: #ca0000;
     text-align: left;
     display: flex;
     justify-content: space-between;
@@ -249,7 +353,7 @@ body {
     overflow: hidden;
     padding: 0 30px;
     font-size: 1rem;
-    color: black;
+    color: #ca0000;
     transition: max-height 0.4s ease, padding 0.3s ease;
 }
 
@@ -261,6 +365,7 @@ body {
 .faq-question .arrow {
     font-size: 1.125rem;
     transition: transform 0.3s ease;
+    color: #ca0000;
 }
 
 .faq-item.active .arrow {
@@ -282,7 +387,13 @@ body {
     border-radius: 10px;
     width: auto;
     height: 400px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    box-shadow: 2px 2px 4px rgba(202, 0, 0, 0.7);
+    transform: rotate(-1.5deg);
+    transition: transform 0.3s ease;
+}
+
+.fprofil:hover {
+    transform: rotate(0deg);
 }
 
 .bio-side {
@@ -292,6 +403,7 @@ body {
     gap: 20px;
     max-width: 600px;
     align-items: center;
+    color: #ca0000;
 }
 
 .bio {
@@ -299,15 +411,25 @@ body {
     line-height: 1.7;
     margin: 0;
     text-align: left;
+    color: #ca0000;
 }
 
 .bio-side .buttondark {
     width: fit-content;
+    color: #ca0000;
+    border: 2px solid #ca0000;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.bio-side .buttondark:hover {
+    background-color: #ca0000;
+    color: white;
 }
 
 .contact-danan {
-    background-color: #1b1b1b;
-    color: white;
+    background-color: white;
+    color: #ca0000;
     padding: 80px 20px;
     display: flex;
     flex-direction: column;
@@ -321,6 +443,7 @@ body {
     letter-spacing: 2px;
     margin-bottom: 50px;
     font-family: 'Poppins', sans-serif;
+    color: #ca0000;
 }
 
 .contact-links-danan {
@@ -339,7 +462,7 @@ body {
     font-weight: 700;
     font-size: 1.1rem;
     letter-spacing: 1px;
-    color: white;
+    color: #ca0000;
     transition: all 0.3s ease;
     padding: 5px 10px;
     display: inline-flex;
@@ -350,7 +473,7 @@ body {
 .reveal-info {
     font-size: 0.85rem;
     font-weight: 400;
-    color: #ccc;
+    color: #cc6666;
     transform: translateY(10px);
     opacity: 0;
     transition: all 0.3s ease;
@@ -363,11 +486,11 @@ body {
 }
 
 .ig-hover:hover {
-    color: #ffcc33;
+    color: #ca0000;
 }
 
 .email-hover:hover {
-    color: #ff1500;
+    color: #ca0000;
 }
 
 .wa-hover:hover {
@@ -380,10 +503,10 @@ body {
     right: 30px;
     width: 45px;
     height: 45px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(202, 0, 0, 0.2);
     backdrop-filter: blur(10px);
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid #ca0000;
+    color: #ca0000;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -400,7 +523,6 @@ body {
     opacity: 1;
     pointer-events: auto;
 }
-
 
 /* NAVBAR */
 @media (max-width: 1200px) {
@@ -427,8 +549,8 @@ body {
 /* PROFILE */
 @media (max-width: 1200px) {
     .profile-container {
-    margin-top: -50px;
-    margin-bottom: -50px;
+        margin-top: -50px;
+        margin-bottom: -50px;
     }
 
     .fprofil {
