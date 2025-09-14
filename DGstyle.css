@@ -3,6 +3,21 @@
     padding: 60px 20px;
     max-width: 1200px;
     margin: auto;
+    animation: geserBawah 300s linear infinite;
+}
+
+@keyframes geserBawah {
+    0% {
+        transform: translateY(0); /* mulai dari kiri */
+    }
+
+    50% {
+        transform: translateY(-100%); /* geser ke kanan penuh */
+    }
+
+    100% {
+        transform: translateY(0); /* mulai dari kiri */
+    }
 }
 
 .gallery-title {

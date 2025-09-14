@@ -30,11 +30,12 @@ body {
 .side-menu {
     position: fixed;
     top: 0;
-    left: -250px; /* sembunyikan di luar layar */
+    left: -250px;
+    /* sembunyikan di luar layar */
     width: 220px;
     height: 100%;
     background-color: #fff;
-    box-shadow: 3px 0 6px rgba(0,0,0,0.3);
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     padding-top: 60px;
@@ -138,6 +139,21 @@ body {
 .jemuran {
     margin-top: 70px;
     height: 100%;
+    animation: geserKanan 500s linear infinite;
+}
+
+@keyframes geserKanan {
+    0% {
+        transform: translateX(0); /* mulai dari kiri */
+    }
+
+    50% {
+        transform: translateX(-100%); /* geser ke kanan penuh */
+    }
+
+    100% {
+        transform: translateX(0); /* mulai dari kiri */
+    }
 }
 
 .main {
@@ -427,8 +443,8 @@ body {
 /* PROFILE */
 @media (max-width: 1200px) {
     .profile-container {
-    margin-top: -50px;
-    margin-bottom: -50px;
+        margin-top: -50px;
+        margin-bottom: -50px;
     }
 
     .fprofil {
